@@ -4,6 +4,11 @@ import {useParams} from "react-router-dom"
 // const [ipInfo, setipInfo] = useState(map);
 
 export default function Header() {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
 const [input, setInput] = useState("");
 
     function handleSubmit(e) {
@@ -11,7 +16,7 @@ const [input, setInput] = useState("");
     geoInfo(searchInfo.value)
     }
 
-    async function geoInfo(){
+     function geoInfo(){
         const { searchTerm } = useParams();
         const { data, loading, error } = useFetch(
             // `https://geo.ipify.org/api/v2/country,city?apiKey=at_wCk2AU75L75m2NLBWqpta6ybD962e${searchTerm}`
@@ -19,6 +24,10 @@ const [input, setInput] = useState("");
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error: {error}</p>;
         if (!data.IpInfo) return <p>Not found.</p>;
+
+
+         map.setView([ipInfo.location.lat,ipInfo.location.lng], 13)
+        L.marker([ipInfo.location.lat,ipInfo.location.lng]).addTo(map)
     }
 
   return (
