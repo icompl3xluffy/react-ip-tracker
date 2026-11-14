@@ -23,7 +23,7 @@ export default function useFetch(url) {
       }
     }
 
-    fetchData();
+    // fetchData();
   }, [url]);
 
   return { data, loading, error };
