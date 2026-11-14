@@ -1,9 +1,10 @@
 
-export default function Main (ipInfo){
-    const {address, ipLocation, timezone, isp}=ipInfo 
+export default function Main ({ipInfo}){
+    // const {address, ipLocation, timezone, isp}=ipInfo 
+    // const {ip, location, timezone, isp}=ipInfo 
     // location needs location.city and location.region
     // timzone is location.timezeone
-  
+    if (!ipInfo) return <p>Loading...</p>;
 
     return(
         
@@ -12,22 +13,22 @@ export default function Main (ipInfo){
         <div id="result-section">
                 
                     <dl aria-live="polite" aria-atomic="true">
-                        <div class="ip-info">
+                        <div className="ip-info">
                         <dt>IP ADDRESS</dt>
                         <dd id="addressValue" >{ipInfo.ip}</dd>
                         </div>
 
-                        <div class="ip-info">
+                        <div className="ip-info">
                         <dt>LOCATION</dt>
-                        <dd id="locationValue" >{ipInfo.location.city}, {ipInfo.location.region}</dd>
+                        <dd id="locationValue"> {ipInfo.location.city}, {ipInfo.location.region}</dd>
                         </div>
 
-                        <div class="ip-info">
+                        <div className="ip-info">
                         <dt>TIMEZONE</dt>
-                        <dd id="timezoneValue" >"UTC" {ipInfo.location.timezone}</dd>
+                        <dd id="timezoneValue" > UTC {ipInfo.location.timezone}</dd>
                         </div>
 
-                        <div class="ip-info">
+                        <div className="ip-info">
                         <dt>ISP</dt>
                         <dd id="ispValue">{ipInfo.isp}</dd>
                         </div>

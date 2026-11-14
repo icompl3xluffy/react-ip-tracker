@@ -1,13 +1,9 @@
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 import {useParams} from "react-router-dom"
-// const [ipInfo, setipInfo] = useState(map);
+// const [ipInfo, setipInfo] = useState();
 
-export default function Header() {
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+export default function Header() {;
 
 const [input, setInput] = useState("");
 
@@ -36,7 +32,7 @@ const [input, setInput] = useState("");
         <h1>IP Address Tracker</h1>
 
         <form id="ip-form" onSubmit={handleSubmit}>
-          <label for="ip-search">IP-Address or Domain</label>
+          <label htmlFor="ip-search">IP-Address or Domain</label>
           <input
             id="ip-search"
             type="text"
