@@ -11,6 +11,7 @@ export default function useFetch(url) {
 
     async function fetchData() {
       try {
+        console.log(url);
         const response = await fetch(url);
         if (!response.ok) throw new Error("There is a problem");
 
@@ -23,7 +24,7 @@ export default function useFetch(url) {
       }
     }
 
-    // fetchData();
+    fetchData();
   }, [url]);
 
   return { data, loading, error };

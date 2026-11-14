@@ -1,12 +1,11 @@
 
 export default function Main ({ipInfo}){
-    
-    if (!ipInfo) return <p>Loading...</p>;
 
     return(
         
     <main>
         <div id="ip-map" ></div>
+        {!ipInfo ? <p>Loading...</p> : (
         <div id="result-section">
                 
                     <dl aria-live="polite" aria-atomic="true">
@@ -35,7 +34,7 @@ export default function Main ({ipInfo}){
             
 
                 </div>
-
+        )}
     </main>
     )
 }
