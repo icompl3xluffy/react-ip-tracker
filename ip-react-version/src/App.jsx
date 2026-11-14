@@ -8,6 +8,10 @@ export default function App() {
  
 
 const mapRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
+    const { data:ipInfo, loading, error } = useFetch(
+            // `https://geo.ipify.org/api/v2/country,city?apiKey=at_wCk2AU75L75m2NLBWqpta6ybD962e${searchTerm}`
+        );
 
   useEffect(() => {
   if (!ipInfo) return;   
@@ -22,11 +26,7 @@ const mapRef = useRef(null);
   return () => map.remove();  
 }, [ipInfo]);
 
-     const [searchTerm, setSearchTerm] = useState("");
-     const { data, loading, error } = useFetch(
-            // `https://geo.ipify.org/api/v2/country,city?apiKey=at_wCk2AU75L75m2NLBWqpta6ybD962e${searchTerm}`
-        );
-
+   
   return (
     <>
    

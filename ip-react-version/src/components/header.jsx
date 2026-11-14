@@ -1,11 +1,13 @@
+import { useState } from "react";
 
-export default function Header() {;
+
+export default function Header({ onSearch }) {
 
 const [input, setInput] = useState("");
 
     function handleSubmit(e) {
     e.preventDefault();
-    geoInfo(searchInfo.value)
+   onSearch(input)
     }
 
   return (

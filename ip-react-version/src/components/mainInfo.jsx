@@ -1,9 +1,6 @@
 
 export default function Main ({ipInfo}){
-    // const {address, ipLocation, timezone, isp}=ipInfo 
-    // const {ip, location, timezone, isp}=ipInfo 
-    // location needs location.city and location.region
-    // timzone is location.timezeone
+    
     if (!ipInfo) return <p>Loading...</p>;
 
     return(
